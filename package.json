@@ -1,0 +1,106 @@
+{
+  "name": "dsh-qoder-bots",
+  "description": "DeepSeek Harness bot plugin powered by Qoder Cloud Agents — persistent persona bots with cloud Memory Stores, multimodal files & images, built-in templates, and named @bot delegation",
+  "homepage": "https://github.com/QoderAI/dsh-qoder-bots#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QoderAI/dsh-qoder-bots.git"
+  },
+  "bugs": {
+    "url": "https://github.com/QoderAI/dsh-qoder-bots/issues"
+  },
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./bot-route": {
+      "types": "./lib/types/bot-route.d.ts",
+      "default": "./lib/bot-route.js"
+    },
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "icon.svg",
+    "locale/*.json",
+    "lib/index.js",
+    "lib/bot-route.js",
+    "/client.js",
+    "cordis.patch.yml",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "author": "Qoder",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "qoder",
+    "cloud-agents",
+    "bots",
+    "cloud-computer"
+  ],
+  "icon": "./icon.svg",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.0-0 <0.3.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/bundle.mts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --experimental-transform-types --test tests/*.spec.ts",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0-0 <5",
+    "@deepseek-ai/dsh-attachment": ">=0.2.0-0 <0.3.0",
+    "@deepseek-ai/dsh-credentials": ">=0.2.0-0 <0.3.0",
+    "@deepseek-ai/dsh-launch-environment": ">=0.2.0-0 <0.3.0",
+    "@deepseek-ai/dsh-llm": ">=0.2.0-0 <0.3.0",
+    "@deepseek-ai/dsh-subagent": ">=0.2.0-0 <0.3.0",
+    "@deepseek-ai/dsh-tool-subagent": ">=0.2.0-0 <0.3.0",
+    "@deepseek-ai/dsh-tools": ">=0.2.0-0 <0.3.0",
+    "@deepseek-ai/schemastery": ">=3.18.0-0 <4"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.5-alpha.2",
+    "@deepseek-ai/dsh-agent": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-attachment": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-commands": "^0.2.1-alpha.4",
+    "@deepseek-ai/dsh-credentials": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-launch-environment": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-llm": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-session": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-session-projection": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-settings": "^0.2.1-alpha.4",
+    "@deepseek-ai/dsh-subagent": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-tool-subagent": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-tools": "0.2.1-alpha.4",
+    "@deepseek-ai/dsh-user-questions": "^0.2.1-alpha.4",
+    "@deepseek-ai/schemastery": "3.18.5-alpha.2",
+    "@types/node": "^22.10.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.0"
+  },
+  "overrides": {
+    "zod": "^4.6.7",
+    "fast-uri": "^4.2.4"
+  },
+  "dependencies": {
+    "qoder-cloud-agents-sdk": "npm:qca-sdk@0.8.0"
+  }
+}
