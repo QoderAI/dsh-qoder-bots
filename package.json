@@ -1,5 +1,5 @@
 {
-  "name": "dsh-qoder-bots",
+  "name": "@qoder-ai/dsh-qoder-bots",
   "description": "DeepSeek Harness bot plugin powered by Qoder Cloud Agents — persistent persona bots with cloud Memory Stores, multimodal files & images, built-in templates, and named @bot delegation",
   "homepage": "https://github.com/QoderAI/dsh-qoder-bots#readme",
   "repository": {
@@ -102,5 +102,9 @@
   },
   "dependencies": {
     "qoder-cloud-agents-sdk": "npm:qca-sdk@0.8.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

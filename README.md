@@ -37,12 +37,12 @@
    npm pack
    ```
 
-   得到 `dsh-qoder-bots-0.1.0.tgz`。把它放到一个固定目录（例如 `~/dsh-plugins/`），profile 里记录的是这个路径。
+   得到 `qoder-ai-dsh-qoder-bots-0.1.0.tgz`。把它放到一个固定目录（例如 `~/dsh-plugins/`），profile 里记录的是这个路径。
 
 2. 安装到 dsh 的 web profile（其他 profile 换成对应名字），路径必须是绝对路径：
 
    ```bash
-   dsh plugin --profile web add ~/dsh-plugins/dsh-qoder-bots-0.1.0.tgz
+   dsh plugin --profile web add ~/dsh-plugins/qoder-ai-dsh-qoder-bots-0.1.0.tgz
    ```
 
    Mac / Windows 客户端：在侧边栏「插件」→ 安装插件，填 tgz 的绝对路径。
@@ -61,7 +61,7 @@
 
    ```yaml
    - id: qoder-bots
-     name: dsh-qoder-bots
+     name: '@qoder-ai/dsh-qoder-bots'
      config:
        gitUsername: your-git-user
    ```
@@ -70,7 +70,7 @@
 
    ```yaml
    - id: qoder-bots
-     name: dsh-qoder-bots
+     name: '@qoder-ai/dsh-qoder-bots'
      config:
        baseURL: https://api.qoder.com/api/v1/cloud
        environmentId: env_xxx        # 不填：优先选用持久化云电脑（runtime_mode=shared）或自动创建
@@ -161,7 +161,7 @@ npm test
 
 - 持久化云电脑与云端 session：可在 Bot「⚙️ 云电脑设置」中点击「重置云电脑（保留记忆）」或「归档 Bot」，也可在 Qoder 控制台归档或删除不再使用的共享云电脑环境（`env_…`）、定时巡检（`dep_…`）及记忆库（`memstore_…`）。
 - 结果分支：挂载仓库推送过新分支时，不需要可删除远端分支，例如 `git push origin --delete qoder-bots/xxxxxxxx`。
-- 插件：`dsh plugin --profile web remove dsh-qoder-bots`，然后重启 dsh。`cordis.patch.yml` 里保存的 `environmentId`、`botId`、`gitUsername` 不会随卸载删除，不需要时手动删掉那一段。
+- 插件：`dsh plugin --profile web remove @qoder-ai/dsh-qoder-bots`，然后重启 dsh。`cordis.patch.yml` 里保存的 `environmentId`、`botId`、`gitUsername` 不会随卸载删除，不需要时手动删掉那一段。
 - 令牌：从 `~/.dsh/.env` 删除 `QODER_PAT`、`QODER_GIT_TOKEN`，并在 Qoder 与 Git 平台吊销不再使用的令牌。
 - 本地构建产物：删除仓库根目录下的 `node_modules/`、`lib/` 和生成的 `.tgz`。
 

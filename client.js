@@ -16,7 +16,7 @@
  *     1-click `🕹️ 人工接管`, persistent `Memory Store` + CoW `Dream`, and `7×24 Routines`.
  */
 window.__ModuleLoader__.load({
-  id: 'dsh-qoder-bots',
+  id: '@qoder-ai/dsh-qoder-bots',
   factory(require) {
     const React = require('react')
     const h = React.createElement
